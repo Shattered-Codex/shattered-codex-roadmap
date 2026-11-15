@@ -1,0 +1,45 @@
+name: Assign roadmap issues
+
+"on":
+  issues:
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: Existing roadmap issue number to assign
+        required: true
+        type: number
+
+permissions: {}
+
+jobs:
+  assign:
+    if: github.repository == 'Shattered-Codex/shattered-codex-roadmap'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue_number }}
+    steps:
+      - name: Add gubacelar as an assignee
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ ! "$ISSUE_NUMBER" =~ ^[1-9][0-9]*$ ]]; then
+            echo '::error::A positive issue number is required.'
+            exit 1
+          fi
+
+          assigned=$(gh api --method POST \
+            "repos/$GH_REPO/issues/$ISSUE_NUMBER/assignees" \
+            --raw-field 'assignees[]=gubacelar' \
+            --jq '.assignees | any(.login == "gubacelar")')
+
+          if [[ "$assigned" != 'true' ]]; then
+            echo '::error::GitHub did not confirm the requested assignee.'
+            exit 1
+          fi
+          echo "Assigned roadmap issue #$ISSUE_NUMBER to gubacelar."
