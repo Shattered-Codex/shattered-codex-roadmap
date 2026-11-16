@@ -1,0 +1,82 @@
+name: Report a bug
+description: Report a problem with a Shattered Codex module or the wiki.
+title: "[Bug] "
+labels: [bug]
+assignees: [gubacelar]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe one problem per issue and search existing issues before submitting.
+        This is a public repository. Remove credentials, access tokens, private campaign information, and personal data from screenshots and logs.
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module or area
+      description: Choose the module or area affected by this problem.
+      options:
+        - SC - Active Effects Search
+        - SC - Ascendant Items
+        - SC - Combat Wheel
+        - SC - Conditional Activities
+        - SC - Conditional AE
+        - SC - Item Rarity Colors
+        - SC - Jump Scare
+        - SC - More Activities
+        - SC - More Gems
+        - SC - NPC & Character Colors
+        - SC - Puzzle Engine
+        - SC - Relic Vault
+        - SC - Resources
+        - SC - Runesmith
+        - SC - Runeword
+        - SC - Setforge
+        - SC - Sidebar Party
+        - SC - Simple Sockets
+        - SC - The Cauldron
+        - SC - Token Activities
+        - SC - Venaerys's Initiative
+        - SC - Wheel Menu
+        - SC - WorldGate
+        - Wiki / documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe what happened and what you expected to happen instead. If you chose Other, name the module or area here.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: List the steps needed to reproduce the problem. For a wiki problem, include the page URL.
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. The problem occurs when...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Versions and environment
+      description: Include exact versions where relevant. For a wiki-only problem, list your browser and device instead.
+      placeholder: |
+        Foundry VTT version:
+        Game system and version:
+        SC module version:
+        Browser or desktop app:
+        Other modules involved, if known:
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots, logs, or additional context
+      description: You can drag screenshots into this field. Check that any attachments or logs are safe to share publicly.
+    validations:
+      required: false

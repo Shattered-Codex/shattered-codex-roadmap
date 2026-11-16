@@ -1,0 +1,65 @@
+name: Suggest an improvement
+description: Suggest a feature, an improvement, or a new module idea.
+title: "[Suggestion] "
+labels: [enhancement]
+assignees: [gubacelar]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Share one idea per issue and search existing issues before submitting.
+        Suggestions help guide the roadmap; submitting an idea does not mean it has been accepted or scheduled.
+        This is a public repository. Keep credentials, private campaign information, and personal data out of your submission.
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module or area
+      options:
+        - SC - Active Effects Search
+        - SC - Ascendant Items
+        - SC - Combat Wheel
+        - SC - Conditional Activities
+        - SC - Conditional AE
+        - SC - Item Rarity Colors
+        - SC - Jump Scare
+        - SC - More Activities
+        - SC - More Gems
+        - SC - NPC & Character Colors
+        - SC - Puzzle Engine
+        - SC - Relic Vault
+        - SC - Resources
+        - SC - Runesmith
+        - SC - Runeword
+        - SC - Setforge
+        - SC - Sidebar Party
+        - SC - Simple Sockets
+        - SC - The Cauldron
+        - SC - Token Activities
+        - SC - Venaerys's Initiative
+        - SC - Wheel Menu
+        - SC - WorldGate
+        - Wiki / documentation
+        - New module idea / other
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What problem would this solve?
+      description: Explain the need or use case. If you chose a new module idea or Other, name the idea or area here.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What would you like to be able to do?
+      description: Describe the outcome you want, with a concrete example if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Alternatives, screenshots, or additional context
+      description: Mention any workaround you use today. You can attach screenshots or examples that are safe to share publicly.
+    validations:
+      required: false

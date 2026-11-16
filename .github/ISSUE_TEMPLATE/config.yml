@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the documentation
+    url: https://wiki.shattered-codex.com/modules
+    about: Check module setup, features, and troubleshooting in the Shattered Codex wiki.
+  - name: Browse the roadmap
+    url: https://github.com/orgs/Shattered-Codex/projects/8/views/1
+    about: See current suggestions and development work before submitting an issue.
